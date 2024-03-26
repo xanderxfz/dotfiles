@@ -1,0 +1,15 @@
+[core]
+	editor = nano -w
+	pager = less
+[user]
+	name = xanderxfz
+	email = xanderxfz.ua@gmail.com
+[merge]
+	tool = diff
+[credential]
+	helper = store
+[push]
+	autoSetupRemote = true
+	default = current
+[pull]
+	rebase = true
