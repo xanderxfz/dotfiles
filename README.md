@@ -7,3 +7,6 @@ My personal dotfiles.
 ```
 git clone https://github.com/xanderxfz/dotfiles.git && cd dotfiles && ./apply.sh
 ```
+
+## TODO
+- Use [dotbot](https://github.com/anishathalye/dotbot)
