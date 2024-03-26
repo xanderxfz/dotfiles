@@ -3,7 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="gentoo"
 
-plugins=(git git-commit sudo docker kubectl helm terraform golang brew)
+plugins=(git sudo docker kubectl helm terraform golang brew)
 
 source $ZSH/oh-my-zsh.sh
 
