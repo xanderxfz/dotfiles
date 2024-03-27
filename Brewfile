@@ -7,9 +7,10 @@ brew "awscli"
 brew "coreutils"
 brew "curl"
 brew "dive"
-#brew "docker"
-#brew "docker-buildx"
-#brew "docker-compose"
+brew "docker", link: false
+brew "docker-buildx", link: false
+brew "docker-compose", link: false
+
 #brew "ffmpeg"
 #brew "gh"
 brew "git"
@@ -31,6 +32,10 @@ brew "yq"
 brew "zsh"
 brew "hashicorp/tap/packer"
 brew "hashicorp/tap/terraform"
+
+cask "docker"
+
+cask "iterm2"
 
 # Clipboard manager
 cask "maccy"
