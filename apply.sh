@@ -11,3 +11,7 @@ for f in .??*; do
 
     ln -sfnv $DOTFILES_PATH/$f ~/$f
 done
+
+# Install tmux tpm if it's missed
+TPM_PATH=~/.tmux/plugins/tpm
+[[ ! -d $TPM_PATH ]] && git clone https://github.com/tmux-plugins/tpm $TPM_PATH
