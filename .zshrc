@@ -2,7 +2,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="gentoo"
 
-plugins=(git sudo docker kubectl helm terraform golang brew zsh-autosuggestions)
+plugins=(git sudo docker kubectl helm terraform golang brew)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -21,6 +21,8 @@ if [[ -a ~/.zshenv ]]; then
   source ~/.zshenv
 fi
 
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export PATH="/usr/local/sbin:$PATH"
 

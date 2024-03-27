@@ -22,6 +22,11 @@ TPM_PATH=~/.tmux/plugins/tpm
 OH_MY_ZSH_PATH=~/.oh-my-zsh
 [[ ! -d $OH_MY_ZSH_PATH ]] && sh -c "$(curl -fsSL https://install.ohmyz.sh/)"
 
+# Install zsh-syntax-highlighting
+ZSH_SYNTAX_HIGHLIGHTING_PATH=~/.zsh/zsh-syntax-highlighting
+[[ ! -d $ZSH_SYNTAX_HIGHLIGHTING_PATH ]] && git clone https://github.com/zsh-users/zsh-syntax-highlighting $ZSH_SYNTAX_HIGHLIGHTING_PATH
+
+
 # Install zsh-autosuggestions
-ZSH_AUTOSUGGESTIONS=~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-[[ ! -d $ZSH_AUTOSUGGESTIONS ]] && git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_AUTOSUGGESTIONS && source ~/.zshrc
+ZSH_AUTOSUGGESTIONS_PATH=~/.zsh/zsh-autosuggestions
+[[ ! -d $ZSH_AUTOSUGGESTIONS_PATH ]] && git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_AUTOSUGGESTIONS_PATH
