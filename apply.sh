@@ -12,6 +12,10 @@ for f in .??*; do
     ln -sfnv $DOTFILES_PATH/$f ~/$f
 done
 
+
+ln -sfnv $DOTFILES_PATH/.ssh/config ~/.ssh/config
+ln -sfnv $DOTFILES_PATH/.ssh/config.d ~/.ssh/config.d
+
 # Install tmux tpm if it's missed
 TPM_PATH=~/.tmux/plugins/tpm
 [[ ! -d $TPM_PATH ]] && git clone https://github.com/tmux-plugins/tpm $TPM_PATH
