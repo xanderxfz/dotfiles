@@ -23,7 +23,7 @@ if [[ -a ~/.zshenv ]]; then
 fi
 
 
-export PATH="$PATH:~/.bin"
+export PATH="/usr/local/sbin:$PATH"
 
 # GoLang
 export GOROOT=/usr/local/go
