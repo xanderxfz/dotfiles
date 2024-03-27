@@ -48,6 +48,7 @@ cask "spotify"
 cask "slack"
 cask "telegram"
 cask "zoom"
+cask "signal"
 
 cask "microsoft-remote-desktop"
 cask "visual-studio-code"
