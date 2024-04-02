@@ -17,3 +17,5 @@
 	insteadOf = https://github.com/
 [branch]
 	sort = -committerdate
+[init]
+	defaultBranch = main
