@@ -1,0 +1,57 @@
+{
+    "telemetry.telemetryLevel": "off",
+
+    "window.newWindowDimensions": "maximized",
+
+    "workbench.colorTheme": "Dark SynthWave '84",
+    "workbench.sideBar.location": "left",
+    "workbench.editor.showTabs": "multiple",
+
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.lineHeight": 0,
+    "terminal.external.osxExec": "iterm.app",
+
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+
+    "editor.renderWhitespace": "trailing",
+    "editor.fontSize": 12,
+
+    "debug.inlineValues": "on",
+
+    "extensions.ignoreRecommendations": true,
+
+    // Markdown Preview Enhanced
+    "markdown-preview-enhanced.codeBlockTheme": "github-dark.css",
+    "markdown-preview-enhanced.previewTheme": "atom-dark.css",
+
+    // Project Manager
+    "projectManager.git.baseFolders": [
+        "~/git/"
+    ],
+
+    // Groovy Lint, Format and Fix
+    "groovyLint.enable": true,
+    "groovyLint.fix.enable": true,
+    "groovyLint.format.enable": true,
+    "groovyLint.insight.enable": false,
+    "groovyLint.format.useDocumentIndentSize": false,
+    "groovyLint.lint.trigger": "user",
+
+    // GoLang
+    "go.useLanguageServer": true,
+    "go.toolsManagement.autoUpdate": true,
+    "[go]": {
+        "editor.tabSize": 4,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": "explicit"
+        }
+    },
+
+    // GitLens
+    "gitlens.telemetry.enabled": false,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.hovers.enabled": true,
+    "gitlens.currentLine.enabled": true,
+}
