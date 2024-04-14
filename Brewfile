@@ -26,6 +26,7 @@ brew "neovim"
 brew "python@3.10"
 brew "rsync"
 #brew "ripgrep"
+brew "tfenv"
 brew "tmux"
 brew "wget"
 brew "yq"
@@ -34,6 +35,8 @@ brew "hashicorp/tap/packer"
 brew "hashicorp/tap/terraform"
 
 cask "docker"
+
+cask "gimp"
 
 cask "iterm2"
 
@@ -45,6 +48,7 @@ cask "google-chrome"
 
 # Fonts
 cask "font-hack-nerd-font"
+cask "font-iosevka-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
 
 
