@@ -24,7 +24,7 @@ fi
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/.local/bin/:/usr/local/sbin:$PATH"
 
 # GoLang
 export GOROOT=/usr/local/go
