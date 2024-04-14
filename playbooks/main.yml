@@ -1,0 +1,9 @@
+---
+- hosts: all
+  vars:
+    home_dir: "{{ lookup('env', 'HOME') }}"
+    dotfiles_dir: "{{ home_dir }}/git/dotfiles"
+  roles:
+    - role: "roles/git"
+    - role: "roles/zsh"
+    - role: "roles/tmux"

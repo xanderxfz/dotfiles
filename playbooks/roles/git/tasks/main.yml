@@ -1,0 +1,5 @@
+- name: Link .gitconfig
+  ansible.builtin.file:
+    src: "{{ dotfiles_dir }}/.gitconfig"
+    dest: "{{ home_dir }}/.gitconfig"
+    state: link

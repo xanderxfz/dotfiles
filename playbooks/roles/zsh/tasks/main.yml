@@ -1,0 +1,46 @@
+- name: Link .zshrc
+  ansible.builtin.file:
+    src: "{{ dotfiles_dir }}/.zshrc"
+    dest: "{{ home_dir }}/.zshrc"
+    state: link
+    force: true
+
+- name: Link .zshenv
+  ansible.builtin.file:
+    src: "{{ dotfiles_dir }}/.zshenv"
+    dest: "{{ home_dir }}/.zshenv"
+    state: link
+    force: true
+
+- name: Check if .oh-my-zsh exists
+  stat:
+    path: "~/.oh-my-zsh"
+  register: oh_my_zsh_dir
+
+- name: Install Oh My Zsh
+  command: sh -c "$(curl -fsSL https://install.ohmyz.sh/)"
+  when: not oh_my_zsh_dir.stat.exists
+
+- name: Check if zsh-syntax-highlighting exists
+  stat:
+    path: "~/.zsh/zsh-syntax-highlighting"
+  register: zsh_syntax_highlighting_dir
+
+- name: Clone zsh-syntax-highlighting repository
+  ansible.builtin.git:
+    repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+    dest: "~/.zsh/zsh-syntax-highlighting"
+    update: true
+  when: not zsh_syntax_highlighting_dir.stat.exists
+
+- name: Check if zsh-autosuggestions exists
+  stat:
+    path: "~/.zsh/zsh-autosuggestions"
+  register: zsh_autosuggestions_dir
+
+- name: Clone zsh-autosuggestions repository
+  ansible.builtin.git:
+    repo: "https://github.com/zsh-users/zsh-autosuggestions.git"
+    dest: "~/.zsh/zsh-autosuggestions"
+    update: true
+  when: not zsh_autosuggestions_dir.stat.exists
