@@ -11,6 +11,7 @@ source $ZSH/oh-my-zsh.sh
 export HOMEBREW_NO_ANALYTICS=1
 
 # More clean history
+setopt hist_ignore_all_dups
 setopt histignoredups histignorespace
 setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
