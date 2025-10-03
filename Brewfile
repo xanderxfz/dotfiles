@@ -15,12 +15,13 @@ brew "docker-compose", link: false
 #brew "ffmpeg"
 #brew "gh"
 brew "git"
-#brew "openjdk"
 brew "go" unless system "go version"
 brew "groovy"
 brew "helm"
 brew "hyperfine"
 brew "jq"
+brew "just"
+brew "skopeo"
 #brew "kompose"
 brew "kubernetes-cli", link: false
 brew "midnight-commander"
@@ -37,6 +38,9 @@ brew "hashicorp/tap/packer"
 brew "hashicorp/tap/terraform"
 
 cask "docker"
+
+
+cask "tofu"
 
 cask "gimp"
 
