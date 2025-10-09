@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -eu
 
@@ -16,10 +16,28 @@ done
 ln -sfnv $DOTFILES_PATH/.ssh/config ~/.ssh/config
 ln -sfnv $DOTFILES_PATH/.ssh/config.d ~/.ssh/config.d
 
+install_pkgs() {
+  local packages=("$@")
+  local to_install=()
+
+  for pkg in "${packages[@]}"; do
+    if ! dpkg -s "$pkg" >/dev/null 2>&1; then
+      to_install+=("$pkg")
+    fi
+  done
+
+  if [ ${#to_install[@]} -gt 0 ]; then
+    echo "🔧 Installing missing packages: ${to_install[*]}"
+    sudo apt install -y "${to_install[@]}"
+  fi
+}
+
+
+install_pkgs less zsh git mc curl wget tmux jq
+
 # Install tmux tpm if it's missed
 TPM_PATH=~/.tmux/plugins/tpm
 [[ ! -d $TPM_PATH ]] && git clone https://github.com/tmux-plugins/tpm $TPM_PATH
-
 
 
 # Install oh-my-zsh
