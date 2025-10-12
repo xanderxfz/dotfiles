@@ -69,10 +69,26 @@
         "*.s3db": "${capture}.${extname}-*"
     },
 
-    "diffEditor.maxComputationTime": 5000,
+    "diffEditor.maxComputationTime": 30000,
     "editor.largeFileOptimizations": false,
     "partialDiff.enableTelemetry": false,
     "partialDiff.preComparisonTextNormalizationRules": [
 
     ],
+    "terminal.integrated.bellDuration": 20000,
+    "docker.extension.enableComposeLanguageServer": false,
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        },
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
 }
