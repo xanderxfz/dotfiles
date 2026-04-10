@@ -1,0 +1,44 @@
+{
+  "$schema": "https://charm.land/crush.json",
+  "options": {
+    "disable_metrics": true
+  },
+  "permissions": {
+    "allowed_tools": [
+      "ls"
+    ]
+  },
+  "providers": {
+    "llama.cpp": {
+      "name": "shp",
+      "base_url": "http://192.168.5.83:8080/v1/",
+      "type": "openai",
+      "models": [
+        {
+          "id": "unsloth/gemma-4-26B-A4B-it-GGUF:UD-IQ4_XS",
+          "name": "gemma-4-26B-A4B-it-GGUF",
+          "context_window": 32768,
+          "default_max_tokens": 16384,
+          "can_reason": true,
+          "supports_attachments": true
+        }
+      ]
+    }
+  },
+  "lsp": {
+    "go": {
+      "command": "gopls",
+      "env": {
+        "GOTOOLCHAIN": "go1.26.2"
+      }
+    },
+    "biome": {
+      "command": "bunx",
+      "args": ["biome", "lsp-proxy"]
+    },
+    "typescript": {
+      "command": "bunx",
+      "args": ["typescript-language-server", "--stdio"]
+    }
+  }
+}

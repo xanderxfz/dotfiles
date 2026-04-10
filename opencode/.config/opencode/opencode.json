@@ -1,0 +1,71 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "question": "allow",
+    "bash": {
+      "git log": "allow",
+      "git status": "allow",
+      "git diff": "allow",
+      "ls": "allow",
+      "cat": "allow",
+      "grep": "allow",
+      "find": "allow"
+    },
+    "list_files": "allow",
+    "list_directory": "allow",
+    "read": "allow",
+    "grep": "ask",
+    "edit": "ask",
+    "write": "ask",
+    "task": "ask",
+    "todowrite": "allow",
+    "webfetch": "ask",
+    "websearch": "ask",
+    "skill": "ask",
+    "todofile": "allow",
+    "todolist": "allow",
+    "todotool": "allow",
+    "todobase": "allow",
+    "external_directory": "ask",
+    "doom_loop": "ask"
+  },
+  "mcp": {
+    "chrome-devtools": {
+      "type": "local",
+      "enabled": false,
+      "command": ["npx", "-y", "chrome-devtools-mcp@latest"]
+    },
+    "playwright": {
+      "type": "local",
+      "enabled": false,
+      "command": ["bunx", "@playwright/mcp@latest"]
+    },
+    "context7": {
+      "type": "remote",
+      "enabled": true,
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "exa": {
+      "type": "remote",
+      "enabled": false,
+      "url": "https://mcp.exa.ai/mcp?tools=web_search_exa,get_code_context_exa,crawling_exa,company_research_exa,linkedin_search_exa,deep_researcher_start,deep_researcher_check"
+    }
+  },
+  "provider": {
+    "llama-cpp": {
+      "name": "llama",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://192.168.5.83:8080/v1",
+        "apiKey": ""
+      },
+      "models": {
+        "gemma-4:26b-a4b": {
+          "contextWindow": 64000,
+          "tool_call": true,
+          "reasoning": true
+        }
+      }
+    }
+  }
+}

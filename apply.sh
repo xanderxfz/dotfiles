@@ -2,7 +2,7 @@
 
 set -eu
 
-DOTFILES_PATH=$(cd $(dirname $0); pwd)
+make dotfiles
 
 install_pkgs() {
   local packages=("$@")

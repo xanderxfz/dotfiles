@@ -1,4 +1,4 @@
-DOTFILE_PACKAGES = root ssh vscode
+DOTFILE_PACKAGES = root ssh vscode opencode crush
 
 .PHONY: default
 default: ansible
