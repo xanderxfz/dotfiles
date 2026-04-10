@@ -1,3 +1,4 @@
+DOTFILE_PACKAGES = root ssh vscode
 
 .PHONY: default
 default: ansible
@@ -13,3 +14,11 @@ sh:
 .PHONY: ansible
 ansible:
 	ansible-playbook playbooks/main.yml -i hosts
+
+.PHONY: homebrew
+homebrew:
+	/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+.PHONY: dotfiles
+dotfiles:
+	stow --verbose --target ~ --restow $(DOTFILE_PACKAGES)

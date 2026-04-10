@@ -4,18 +4,6 @@ set -eu
 
 DOTFILES_PATH=$(cd $(dirname $0); pwd)
 
-for f in .??*; do
-    [[ $f == ".git" ]] && continue
-    [[ $f == ".ssh" ]] && continue
-    [[ $f == ".gitignore" ]] && continue
-
-    ln -sfnv $DOTFILES_PATH/$f ~/$f
-done
-
-
-ln -sfnv $DOTFILES_PATH/.ssh/config ~/.ssh/config
-ln -sfnv $DOTFILES_PATH/.ssh/config.d ~/.ssh/config.d
-
 install_pkgs() {
   local packages=("$@")
   local to_install=()
