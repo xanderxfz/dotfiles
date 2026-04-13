@@ -51,6 +51,5 @@ set_bash_prompt() {
 
 PROMPT_COMMAND=set_bash_prompt
 
-# opencode
-export PATH=$HOME/.opencode/bin:$PATH
-. "$HOME/.cargo/env"
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"

@@ -1,14 +1,18 @@
-export ZSH="$HOME/.oh-my-zsh"
+#[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
+# Stash your environment variables in ~/.zshenv
+if [[ -a ~/.zshenv ]]; then
+  source ~/.zshenv
+fi
+
+export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="gentoo"
 
 plugins=(git sudo docker kubectl helm terraform golang brew)
+autoload -Uz compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
-
-
-# Prevent Homebrew from reporting
-export HOMEBREW_NO_ANALYTICS=1
+source $ZSH/plugins/docker/docker.plugin.zsh 2>/dev/null || true
 
 # More clean history
 setopt hist_ignore_all_dups
@@ -16,23 +20,16 @@ setopt histignoredups histignorespace
 setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
 
-
-# Stash your environment variables in ~/.zshenv
-if [[ -a ~/.zshenv ]]; then
-  source ~/.zshenv
-fi
+alias tma="tmux a"
+alias tml="tmux list-sessions"
+alias dc="docker compose"
+alias tf="terraform"
+alias k="kubectl"
+alias eks="eksctl"
+alias python="python3"
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export PATH="$HOME/.local/bin/:/usr/local/sbin:$PATH"
-
-# GoLang
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin/:$GOPATH/bin
-
-# Java and Groovy
-export JAVA_HOME=/usr/local/Cellar/openjdk/21.0.2
-export GROOVY_HOME=/usr/local/opt/groovy/libexec
-export PATH=$PATH:$JAVA_HOME/bin:$GROOVY_HOME
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"

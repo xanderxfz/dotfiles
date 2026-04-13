@@ -1,5 +1,3 @@
 .zshenv
 .git-credentials
 
-*.bak
-*.tmp
