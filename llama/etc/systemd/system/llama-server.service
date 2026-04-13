@@ -1,0 +1,16 @@
+[Unit]
+Description=llama.cpp server
+After=network.target
+
+[Service]
+Type=simple
+User=llamauser
+Group=llamauser
+SupplementaryGroups=render video
+WorkingDirectory=/opt/llama.cpp
+ExecStart=/opt/llama.cpp/bin/llama-server --jinja --models-max 1 --host 0.0.0.0 --port 11434 --n-gpu-layers 1 --models-preset /opt/llama.cpp/llama.ini
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,26 @@
+#
+# To view logs:
+#   sudo journalctl -u llama-server -f
+#
+
+[Unit]
+Description=llama.cpp Server (Vulkan)
+After=network.target
+
+[Service]
+Type=simple
+User=llamauser
+Group=llamauser
+WorkingDirectory=/opt/llama.cpp
+ExecStart=/opt/llama.cpp/bin/llama-server \
+	--jinja \
+	--host 0.0.0.0 \
+	--port 4000 \
+	-ngl -1 \
+	--models-max 1 \
+	--models-preset /opt/llama.cpp/llama.ini
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
