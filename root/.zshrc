@@ -1,5 +1,3 @@
-#[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
-
 # Stash your environment variables in ~/.zshenv
 if [[ -a ~/.zshenv ]]; then
   source ~/.zshenv
