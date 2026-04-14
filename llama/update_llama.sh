@@ -8,6 +8,7 @@ set -e
 
 TARGET="/opt/llama.cpp/bin"
 SERVICE_NAME="llama-server.service"
+WEB_PORT=11434
 
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -48,7 +49,7 @@ wget -qO- "$URL" | tar -xz -C "$TMP"
 # Stop the service if it is running
 #if systemctl list-unit-files | grep -q "^${SERVICE_NAME}"; then
 if systemctl is-active --quiet "$SERVICE_NAME"; then
-    log_info "Stopping $SERVICE_NAME for update..."
+    log_info "Stopping ${GREEN}$SERVICE_NAME${NC} for update..."
     sudo systemctl stop "$SERVICE_NAME"
     WAS_RUNNING=true
 fi
@@ -64,10 +65,15 @@ rm -rf "$TMP"
 
 # Restart the service if needed
 if [ "$WAS_RUNNING" = true ]; then
-    log_info "Restarting $SERVICE_NAME..."
+    log_info "Restarting ${GREEN}$SERVICE_NAME${NC}..."
     sudo systemctl start "$SERVICE_NAME"
 else
     log_info "Update complete. Service was not running, so it remains stopped."
 fi
 
 log_info "All done. Update completed."
+
+# Get the IP used by the default route
+HOST_IP=$(ip route get 1.1.1.1 2>/dev/null | grep -oP 'src \K\S+')
+ACCESS_URL="http://${HOST_IP}:${WEB_PORT}"
+log_info "${GREEN}llama.cpp${NC} started at ${GREEN}$ACCESS_URL${NC}"

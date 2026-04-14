@@ -2,6 +2,14 @@
 Description=llama.cpp server
 After=network.target
 
+# Standard Resource Controls
+MemoryHigh=70%
+MemoryMax=85%
+
+# systemd-oomd protection
+OOMScoreAdjust=-500
+ManagedOOMPreference=avoid
+
 [Service]
 Type=simple
 User=llamauser
@@ -9,11 +17,10 @@ Group=llamauser
 SupplementaryGroups=render video
 WorkingDirectory=/opt/llama.cpp
 ExecStart=/opt/llama.cpp/bin/llama-server \
-  --jinja \
   --models-max 1 \
   --host 0.0.0.0 \
   --port 11434 \
-  --n-gpu-layers 1 \
+  --models-dir /opt/llama.cpp/models/ \
   --models-preset /opt/llama.cpp/llama.ini
 Environment="HF_HOME=/opt/llama.cpp/models/"
 Environment="HF_HUB_CACHE=/opt/llama.cpp/models/"

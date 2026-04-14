@@ -36,6 +36,11 @@ else
     log_info "User ${GREEN}$L_USER${NC} already exists."
 fi
 
+# Add current user to Group llamauser
+if ! id -nG "$USER" | grep -qw "$L_GROUP"; then
+  log_info "Adding ${GREEN}$USER${NC} user to ${GREEN}$L_USER${NC}..."
+  sudo usermod -aG "$L_GROUP" "$USER"
+fi
 
 # Setup Directory Structure
 log_info "Preparing directories..."
