@@ -20,6 +20,7 @@ ExecStart=/opt/llama.cpp/bin/llama-server \
   --models-max 1 \
   --host 0.0.0.0 \
   --port 11434 \
+  --tools all \
   --models-dir /opt/llama.cpp/models/ \
   --models-preset /opt/llama.cpp/llama.ini
 Environment="HF_HOME=/opt/llama.cpp/models/"

@@ -29,3 +29,5 @@ export PATH=$HOME/.opencode/bin:$PATH
 export KUBECONFIG=~/.kube/config
 
 export PATH="$HOME/bin/:$HOME/.local/bin/:$HOME/.npm/bin:/usr/local/sbin:$PATH"
+
+. "$HOME/.local/bin/env"

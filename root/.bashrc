@@ -53,3 +53,5 @@ PROMPT_COMMAND=set_bash_prompt
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+. "$HOME/.local/bin/env"
